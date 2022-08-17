@@ -15,9 +15,19 @@
       :currentStatus="currentStatus"
     ></fetch-users>
     <div class="pagination">
-      <button class="prev" id="prev" @click="prevPage">Prev</button>
-      <span class="currentPage">{{ currentPage }}</span>
-      <button class="next" id="next" @click="nextPage">Next</button>
+      <button @click="prevPage('prev')">Prev</button>
+      <div class="PaginationItems">
+        <div
+          class="PaginationItem"
+          :class="page === CurrentPage ? 'active' : ''"
+          v-for="(pageNumber, page) in this.LinksArrForPaginationElements"
+          v-bind:key="page"
+          @click="getDataByLink(pageNumber, i)"
+        >
+          {{ i + 1 }}"
+        </div>
+      </div>
+      <button @click="nextPage('next')">Next</button>
     </div>
   </div>
 </template>
